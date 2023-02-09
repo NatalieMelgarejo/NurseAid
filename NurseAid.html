@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <title>NurseAid.</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .brand {
+      margin-left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #285430;
+    }
+
+    .brand i {
+      font-size: 30px;
+      margin-right: 10px;
+    }
+
+    .item {
+      display: flex;
+      list-style-type: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .item a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: black;
+    }
+
+    /* Slideshow */
+    /* Slideshow container */
+    .slideshow-container {
+      position: relative;
+      margin: auto;
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+      display: none;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0.4;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .about {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .aboutBrand {
+      margin-right: 3rem;
+    }
+
+    .aboutTxt {
+      width: 45%;
+    }
+
+    .aboutBrand1 {
+      margin-left: 3rem;
+    }
+
+    .aboutTxt1 {
+      width: 45%;
+    }
+
+    .about-pt2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .info {
+      text-align: center;
+      width: 90%;
+      margin: 3rem 0;
+    }
+
+    .card {
+      display: flex;
+    }
+
+    .card-color {
+      border-radius: 16px;
+      overflow: hidden;
+      background-color: #395144;
+      height: 550px;
+      width: 400px;
+      margin: 0 1.5rem;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 2rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .FAQS {
+      margin: 0 3.5rem;
+    }
+
+    .faq-holder {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 125px;
+      gap: 1rem;
+      font-size: 1.2rem;
+    }
+
+    details {
+      border: 1px solid hsla(0, 0%, 0%, 0.5);
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.5rem 0;
+      box-shadow: 0rem 0.25rem 0.125rem hsla(0, 0%, 0%, 0.25);
+      overflow: hidden;
+      color: white;
+    }
+
+    summary {
+      font-weight: bold;
+      margin: -0.5rem -0.5rem 0;
+      padding: 0.5rem;
+      background-color: #285430;
+    }
+
+    details[open] {
+      padding: 0.5em;
+      background-color: transparent;
+      color: black;
+      border: 1px solid hsla(0, 0%, 0%, 0.5);
+      box-shadow: 0rem 0.5rem 0.25rem hsla(0, 0%, 0%, 0.5);
+    }
+
+    details[open] summary {
+      background-color: #285430;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      color: white;
+      border-bottom: 1px solid hsla(0, 0%, 0%, 0.5);
+      margin-bottom: 0.5rem;
+    }
+
+    details[open] p {
+      padding: 1rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 4rem;
+      background-color: #eee;
+      text-align: center;
+    }
+
+    .icons {
+      font-size: 32px;
+      color: #285430;
+    }
+  </style>
+  <body>
+    <nav class="nav">
+      <div class="brand">
+        <i class="fa-solid fa-user-nurse"></i>
+        <h1>NurseAid.</h1>
+      </div>
+      <div class="item">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#FAQS">FAQs</a>
+      </div>
+    </nav>
+
+    <div id="home">
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade" style="display: none">
+          <div class="numbertext">1 / 3</div>
+          <img
+            src="8.png"
+            style="width: 100%"
+          />
+        </div>
+
+        <div class="mySlides fade" style="display: none">
+          <div class="numbertext">2 / 3</div>
+          <img
+            src="4.jpg"
+            style="width: 100%"
+          />
+        </div>
+
+        <div class="mySlides fade" style="display: none">
+          <div class="numbertext">3 / 3</div>
+          <img
+            src="1.jpg"
+            style="width: 100%"
+          />
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a id="nextBtn" class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br />
+    </div>
+    <div id="about">
+      <div class="about">
+        <div class="aboutBrand">
+          <img
+            src="https://media.istockphoto.com/id/689100658/photo/portrait-of-confident-healthcare-professional.jpg?s=612x612&w=0&k=20&c=4gomnk1Vs9Ci_H71Oa_01s-zGW3EIOHHK1ZL8q1jQG0="
+            alt=""
+          />
+        </div>
+        <div class="aboutTxt">
+          <h1 style="font-size: 40px; margin-bottom: 2rem">
+            Always with a great smile.
+          </h1>
+          <p style="text-align: justify; font-size: 18px">
+            Filipino nurses play a significant role in the healthcare industry,
+            both domestically in the Philippines and globally. They are highly
+            valued for their strong work ethic, exceptional clinical skills, and
+            compassionate bedside manner. In the Philippines, Filipino nurses
+            are an integral part of the country's healthcare system, providing
+            essential care to patients in hospitals, clinics, and other
+            healthcare facilities. Many Filipino nurses are also trained in
+            midwifery and provide care to mothers and newborns.
+          </p>
+        </div>
+      </div>
+      <div class="about-pt2">
+        <div class="info">
+          <h1 style="font-size: 40px; margin-bottom: 1.5rem">
+            <span style="color: #285430">NurseAid</span> provides Filipino
+            healthcare for EveryJuan!
+          </h1>
+          <p style="font-size: 18px">
+            Filipino nurses are known to be the best nurses in the world! Name
+            any country — USA, Canada, Australia or the U.K – Filipino nurses
+            are setting a benchmark in the profession. They are sincere,
+            patient-centric and have a sympathetic attitude towards patients.
+            Not only this, they are versatile and blend easily into different
+            cultures.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-color">
+            <img
+              src="https://weeklyrecess.com/uploads/fi/Philippines-the-largest-supplier-of-Nurses-in-the-World-cover.jpg"
+              alt=""
+              width="400px"
+              height="300px"
+              style="object-fit: cover"
+            />
+            <div class="card-body">
+              <h1 style="margin-bottom: 1rem">Quick Learners</h1>
+              <p style="color: #eeeeeee7">
+                As we know English is not the native language of Filipino nurses
+                but they are quick learners. They have mastered the English
+                language to perfection. Majority of Filipino nurses have good
+                communication skills and they easily adopt accents too.
+              </p>
+            </div>
+          </div>
+          <div class="card-color">
+            <img
+              src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.6435-9/139524490_1115060985588786_2327073797400861839_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeE0MsUScB_srEkaXvI5_bzQrqJ5tnRNAaeuonm2dE0Bp9WlTm7NCdIqP0Vjr-wD41Rr6gRpTaV5kO2zFBUrM896&_nc_ohc=SIcP-ql_sNMAX-zeg8E&_nc_ht=scontent.fmnl25-1.fna&oh=00_AfC6VFMPQvVStmwjSJDVpTPR98oEMzEpyKTwdXZx0J7Mrg&oe=640BE904"
+              alt=""
+              width="400px"
+              height="300px"
+              style="object-fit: cover"
+            />
+            <div class="card-body">
+              <h1 style="margin-bottom: 1rem">Spread Happiness</h1>
+              <p style="color: #eeeeeee7">
+                Even while working relentlessly in multiple shifts, while
+                shouldering a co-nurse’s duty or multitasking, they know when to
+                share funny anecdotes, or when cracking a joke will lighten up
+                the eyes of patient.
+              </p>
+            </div>
+          </div>
+          <div class="card-color">
+            <img
+              src="https://inscol.com/philippines/wp-content/uploads/2022/09/Image-4-1.jpg"
+              alt=""
+              width="400px"
+              height="300px"
+              style="object-fit: cover"
+            />
+            <div class="card-body">
+              <h1 style="margin-bottom: 1rem">Tender and Loving</h1>
+              <p style="color: #eeeeeee7">
+                Filipino nurses are regarded as the most compassionate nurses.
+                They are well known for their caring and loving attitude. This
+                trait of Filipino nurses makes them not only fit, but fabulous
+                for the profession.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about">
+        <div class="aboutTxt1">
+          <h1 style="font-size: 40px; margin-bottom: 2rem">Why NurseAid?</h1>
+          <p style="text-align: justify; font-size: 18px">
+            Through time, the trend of the nursing profession was commercialized
+            through its great opportunities abroad and its deafening high pay
+            for specialized nurses. Meanwhile, nursing schools had emerged like
+            mushrooms in the Philippines and the number of Filipino nurses
+            become extremely imbalanced with its term of demand from healthcare
+            facilities here in the country; making greener pastures overseas an
+            option and a vibrant dream goal.
+          </p>
+        </div>
+        <div class="aboutBrand1">
+          <img
+            src="https://canadianinquirer.net/v1/wp-content/uploads/2017/02/15203133_714078025413701_4076719220846472206_n.jpg"
+            alt=""
+            width="600px"
+          />
+        </div>
+      </div>
+    </div>
+    <div id="FAQS" class="FAQS">
+      <h1 style="font-size: 40px; margin: 2rem 0; text-align: center">
+        Frequently Asked Questions
+      </h1>
+      <div class="faq-holder">
+        <details>
+          <summary>What is nursing?</summary>
+          <p style="text-align: justify">
+            Nursing is a healthcare profession focused on providing care and
+            support to individuals, families, and communities in their health
+            and wellness needs. Nurses work in a variety of settings, including
+            hospitals, clinics, long-term care facilities, schools, and
+            community health organizations.
+          </p>
+        </details>
+        <details>
+          <summary>What do nurses do?</summary>
+          <p style="text-align: justify">
+            Nurses perform a variety of tasks, including assessing patients'
+            health needs, developing and implementing care plans, administering
+            medications, monitoring patients' progress, communicating with other
+            healthcare professionals, and educating patients and families about
+            their health conditions.
+          </p>
+        </details>
+        <details>
+          <summary>What education is required to become a nurse?</summary>
+          <p style="text-align: justify">
+            To become a registered nurse (RN), individuals typically need to
+            complete a Bachelor of Science in Nursing (BSN) degree program,
+            although some RNs may enter the profession with an associate's
+            degree in nursing. To become an advanced practice nurse, such as a
+            nurse practitioner (NP) or nurse anesthetist (CRNA), individuals
+            typically need to complete a master's degree in nursing.
+          </p>
+        </details>
+        <details>
+          <summary>What are the different types of nurses?</summary>
+          <p style="text-align: justify">
+            There are several types of nurses, including registered nurses
+            (RNs), licensed practical nurses (LPNs), nurse practitioners (NPs),
+            nurse anesthetists (CRNAs), and nurse midwives (CNMs). Each type of
+            nurse has different levels of education and scope of practice, and
+            they may specialize in different areas of healthcare.
+          </p>
+        </details>
+        <details>
+          <summary>What is the job outlook for nurses?</summary>
+          <p style="text-align: justify">
+            The demand for nurses is expected to grow significantly in the
+            coming years, due to factors such as an aging population, advances
+            in medical technology, and a growing emphasis on preventative
+            healthcare. According to the Bureau of Labor Statistics, employment
+            of nurses is projected to grow 7% from 2019 to 2029, which is faster
+            than the average for all occupations.
+          </p>
+        </details>
+      </div>
+    </div>
+    <footer>
+      <div class="icons">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-twitter"></i>
+      </div>
+      <p>
+        © All Rights Reserved, 2023. <b style="color: #285430">NurseAid.</b>
+      </p>
+      <p>Created by <b>Natalie Collins L. Melgarejo</b></p>
+      <p> <b>BSN 2-1</b> </p>
+    </footer>
+  </body>
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Start autoplaying automatically
+    var autoplayInterval = setTimeout(function () {
+      // Get element via id and click next
+      document.getElementById("nextBtn").click();
+    }, 1000); // Do this every 1 second, increase this!
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+
+    var faq = document.getElementsByClassName("faq-page");
+    var i;
+    for (i = 0; i < faq.length; i++) {
+      faq[i].addEventListener("click", function () {
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+        /* Toggle between hiding and showing the active panel */
+        var body = this.nextElementSibling;
+        if (body.style.display === "block") {
+          body.style.display = "none";
+        } else {
+          body.style.display = "block";
+        }
+      });
+    }
+
+    const All_Details = document.querySelectorAll("details");
+
+    All_Details.forEach((faq) => {
+      faq.addEventListener("toggle", toggleOpenOneOnly);
+    });
+
+    function toggleOpenOneOnly(e) {
+      if (this.open) {
+        All_Details.forEach((faq) => {
+          if (faq != this && faq.open) faq.open = false;
+        });
+      }
+    }
+  </script>
+</html>
